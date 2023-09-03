@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import android.widget.Toast
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import com.roman.jpmnycsch.R
 import com.roman.jpmnycsch.model.School
@@ -13,7 +14,7 @@ import com.roman.jpmnycsch.model.School
 /*
 * Class: SchoolAdapter
 * Owner: Roman Edjlali
-* Date Created: 08/31/2023 19:43 PM
+* Date Created: 08/31/2023 19:43
 */
 
 class SchoolAdapter(private val schools: ArrayList<School>) :
@@ -46,11 +47,12 @@ class SchoolAdapter(private val schools: ArrayList<School>) :
         holder.bind(schools[position])
         holder.itemView.setOnClickListener {
             // Display shipment destination for the selected driver
-            Toast.makeText(
+            /*Toast.makeText(
                 holder.itemView.context,
                 "DBN: ${schools[position].dbn}\nSchool Name: ${schools[position].school_name}",
                 Toast.LENGTH_SHORT
-            ).show()
+            ).show()*/
+            Navigation.findNavController(it).navigate(ListFragmentDirections.actionDetailFragment())
         }
     }
 

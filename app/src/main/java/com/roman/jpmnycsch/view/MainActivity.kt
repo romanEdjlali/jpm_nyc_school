@@ -3,11 +3,16 @@ package com.roman.jpmnycsch.view
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.view.ActionMode
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
+import androidx.navigation.NavController
+import androidx.navigation.Navigation
+import androidx.navigation.ui.NavigationUI
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.roman.jpmnycsch.databinding.ActivityMainBinding
 import com.roman.jpmnycsch.viewmodel.SchoolViewModel
+import com.roman.jpmnycsch.R
 
 /*
 * Class: MainActivity
@@ -16,7 +21,9 @@ import com.roman.jpmnycsch.viewmodel.SchoolViewModel
 */
 
 class MainActivity : AppCompatActivity() {
+    private val tag = javaClass.simpleName
 
+    //private lateinit var navController: NavController
     private  lateinit var binding: ActivityMainBinding
 
     lateinit var viewModel: SchoolViewModel
@@ -27,11 +34,12 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         val view = binding.root
+        //navController = Navigation.findNavController(this@MainActivity, R.id.fragment)
+        //NavigationUI.setupActionBarWithNavController(this@MainActivity,navController)
         setContentView(view)
-        //setContentView(R.layout.activity_main)
 
 
-        viewModel = ViewModelProviders.of(this).get(SchoolViewModel::class.java)
+       /* viewModel = ViewModelProviders.of(this).get(SchoolViewModel::class.java)
         viewModel.refresh()
 
         binding.schoolList.apply {
@@ -39,10 +47,10 @@ class MainActivity : AppCompatActivity() {
             adapter = schoolAdapter
         }
 
-        observeViewModel()
+        observeViewModel()*/
     }
 
-    fun observeViewModel() {
+    /*fun observeViewModel() {
         viewModel.schools.observe(this, Observer {schools ->
             schools?.let {
                 binding.schoolList.visibility = View.VISIBLE
@@ -62,29 +70,8 @@ class MainActivity : AppCompatActivity() {
                 }
             }
         })
-    }
-
-    /*fun getSchoolList() {
-        var retrofit = SchoolRetrofitClient.getInstance()
-        var apiInterface = retrofit.create(SchoolAPIService::class.java)
-        lifecycleScope.launchWhenCreated {
-            try {
-                val response = apiInterface.getAllSchools()
-                if (response.isSuccessful()) {
-                    //your code for handaling success response
-
-
-                } else {
-                    Toast.makeText(
-                        this@MainActivity,
-                        response.errorBody().toString(),
-                        Toast.LENGTH_LONG
-                    ).show()
-                }
-            }catch (Ex:Exception){
-                Log.e("Error",Ex.localizedMessage)
-            }
-        }
-
+    }*/
+   /* override fun onSupportNavigateUp(): Boolean {
+        return NavigationUI.navigateUp(navController, null)
     }*/
 }
