@@ -26,7 +26,7 @@
         <argument
             android:name="schUuid"
             app:argType="integer"
-            android:defaultValue="0" />
+            android:defaultValue="0"/>
         <argument
             android:name="dbnIndex"
             app:argType="string"

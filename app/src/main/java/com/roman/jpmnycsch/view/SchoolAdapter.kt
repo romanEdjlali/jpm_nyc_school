@@ -1,6 +1,7 @@
 package com.roman.jpmnycsch.view
 
 import android.annotation.SuppressLint
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -19,7 +20,7 @@ import com.roman.jpmnycsch.model.School
 
 class SchoolAdapter(private val schools: ArrayList<School>) :
     RecyclerView.Adapter<SchoolAdapter.ViewHolder>() {
-
+    private val tag = javaClass.simpleName
     class ViewHolder (itemView: View) : RecyclerView.ViewHolder(itemView) {
         private val tvDbn: TextView = itemView.findViewById(R.id.tvDbn)
         private val tvSchoolName: TextView = itemView.findViewById(R.id.tvSchoolName)
@@ -59,7 +60,8 @@ class SchoolAdapter(private val schools: ArrayList<School>) :
             ).show()*/
             val action: ListFragmentDirections.ActionDetailFragment = ListFragmentDirections.actionDetailFragment()
             action.dbnIndex = schools[position].dbn
-            Navigation.findNavController(it).navigate(ListFragmentDirections.actionDetailFragment())
+            Log.d(tag, "***>>> dbn is: ${action.dbnIndex}")
+            Navigation.findNavController(it).navigate(action)
         }
     }
 

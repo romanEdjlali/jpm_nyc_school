@@ -1,6 +1,7 @@
 package com.roman.jpmnycsch.viewmodel
 
 import android.app.Application
+import android.util.Log
 import android.widget.Toast
 import androidx.lifecycle.MutableLiveData
 import com.roman.jpmnycsch.model.AppDatabase
@@ -104,6 +105,7 @@ class SATScoreViewModel(*/
 
 class DetailViewModel(application: Application) : BaseViewModel(application) {
 
+    private val tag = javaClass.simpleName
     val satScoreLiveData = MutableLiveData<SATScore>()
 
   /*  fun fetch(uuid: Int) {
@@ -116,6 +118,7 @@ class DetailViewModel(application: Application) : BaseViewModel(application) {
     fun fetchByDbn(dbn: String) {
         launch {
             val satScore = AppDatabase(getApplication()).satScoreDao().getSatScoreByDbn(dbn)
+            Log.d(tag, "***>>> SatScore is, $satScore")
             Toast.makeText(getApplication(), "satScore is $satScore", Toast.LENGTH_SHORT).show()
             satScoreLiveData.value = satScore
         }

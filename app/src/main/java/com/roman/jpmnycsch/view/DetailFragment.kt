@@ -27,7 +27,7 @@ class DetailFragment : Fragment() {
     private var schUuid = 0
     private var dbnIndex = "dbn"
 
-    private lateinit var  viewModel: DetailViewModel
+    lateinit var  viewModel: DetailViewModel
     private var currentSatScore: SATScore? = null
 
     override fun onCreateView(
