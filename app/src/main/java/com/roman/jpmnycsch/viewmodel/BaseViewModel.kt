@@ -7,6 +7,12 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
 import kotlin.coroutines.CoroutineContext
 
+
+/*
+* Class: BaseViewModel`
+* Owner: Roman Edjlali
+* Date Created: 09/03/2023 13:27
+*/
 abstract class BaseViewModel(application: Application): AndroidViewModel(application),
     CoroutineScope {
 

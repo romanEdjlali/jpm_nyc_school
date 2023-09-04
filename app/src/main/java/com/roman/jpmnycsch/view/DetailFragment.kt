@@ -1,6 +1,7 @@
 package com.roman.jpmnycsch.view
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -11,22 +12,22 @@ import androidx.lifecycle.ViewModelProviders
 import com.roman.jpmnycsch.R
 import com.roman.jpmnycsch.databinding.FragmentDetailBinding
 import com.roman.jpmnycsch.model.SATScore
-import com.roman.jpmnycsch.viewmodel.SATScoreViewModel
+import com.roman.jpmnycsch.viewmodel.DetailViewModel
 
 /**
  * Class: DetailFragment
  * Owner: Roman Edjlali
  * Date Created: 09/01/2023 8:28 AM
  */
-
 class DetailFragment : Fragment() {
 
     private val tag = javaClass.simpleName
 
     private lateinit var detailBinding: FragmentDetailBinding
     private var schUuid = 0
+    private var dbnIndex = "dbn"
 
-    private lateinit var  viewModel: SATScoreViewModel
+    private lateinit var  viewModel: DetailViewModel
     private var currentSatScore: SATScore? = null
 
     override fun onCreateView(
@@ -44,11 +45,14 @@ class DetailFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         //val btnList = view.findViewById<Button>(R.id.btnList)
         arguments?.let {
-            schUuid = DetailFragmentArgs.fromBundle(it).schUuid
+            //schUuid = DetailFragmentArgs.fromBundle(it).schUuid
+            dbnIndex = DetailFragmentArgs.fromBundle(it).dbnIndex
         }
 
-        viewModel = ViewModelProviders.of(this).get(SATScoreViewModel::class.java)
-        viewModel.fetch(schUuid)
+        Log.d(tag, "***>>> schUuid is $schUuid & dbnIndex: $dbnIndex")
+        viewModel = ViewModelProviders.of(this).get(DetailViewModel::class.java)
+        //viewModel.fetch(schUuid)
+        viewModel.fetchByDbn(dbnIndex)
         observeViewModel()
     }
 

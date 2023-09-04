@@ -5,7 +5,12 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 
-@Database(entities = [/*School::class, */SATScore::class], version = 1)
+/*
+* Class: AppDatabase
+* Owner: Roman Edjlali
+* Date Created: 08/31/2023 19:01
+*/
+@Database(entities = [SATScore::class], version = 3)
 abstract class AppDatabase: RoomDatabase() {
     abstract fun satScoreDao(): SATScoreDao
 
@@ -22,7 +27,7 @@ abstract class AppDatabase: RoomDatabase() {
         private fun buildDatabase(context: Context) = Room.databaseBuilder(
             context.applicationContext,
             AppDatabase::class.java,
-            "app_database"
+            "appdatabase"
         ).build()
     }
 }

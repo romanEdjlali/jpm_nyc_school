@@ -19,10 +19,8 @@ data class School(
     //val borough: String,
     //val overviewParagraph: String
     val total_students: String,
-    val primary_address_line_1: String,
-    val city: String,
-    val zip: String,
-    val state_code: String
+    val location: String,
+    val phone_number: String
 )
 
 @Entity(tableName = "sat_scores")
@@ -35,17 +33,17 @@ data class SATScore(
     val school_name: String,
 
     @ColumnInfo(name = "num_of_sat_test_takers")
-    val num_of_sat_test_takers: Int,
+    val num_of_sat_test_takers: String?,
 
     @ColumnInfo(name = "sat_critical_reading_avg_score")
-    val sat_critical_reading_avg_score: Int,
+    val sat_critical_reading_avg_score: String?,
 
     @ColumnInfo(name = "sat_math_avg_score")
-    val sat_math_avg_score: Int,
+    val sat_math_avg_score: String?,
 
     @ColumnInfo(name = "sat_writing_avg_score")
-    val sat_writing_avg_score: Int
+    val sat_writing_avg_score: String?
 ){
     @PrimaryKey(autoGenerate = true)
-    var uuid: Int = 0
+    var uuid: Long = 0
 }

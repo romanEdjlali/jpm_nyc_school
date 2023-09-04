@@ -23,10 +23,15 @@ class SchoolAdapter(private val schools: ArrayList<School>) :
     class ViewHolder (itemView: View) : RecyclerView.ViewHolder(itemView) {
         private val tvDbn: TextView = itemView.findViewById(R.id.tvDbn)
         private val tvSchoolName: TextView = itemView.findViewById(R.id.tvSchoolName)
+        private val tvLocation: TextView = itemView.findViewById(R.id.tvLocation)
+        private val tvPhone: TextView = itemView.findViewById(R.id.tvPhone)
 
         fun bind(school: School) {
             tvDbn.text = school.dbn
-            tvSchoolName.text =school.school_name
+            tvSchoolName.text = school.school_name
+            tvLocation.text = school.location
+            tvPhone.text = school.phone_number
+
         }
     }
 
@@ -52,6 +57,8 @@ class SchoolAdapter(private val schools: ArrayList<School>) :
                 "DBN: ${schools[position].dbn}\nSchool Name: ${schools[position].school_name}",
                 Toast.LENGTH_SHORT
             ).show()*/
+            val action: ListFragmentDirections.ActionDetailFragment = ListFragmentDirections.actionDetailFragment()
+            action.dbnIndex = schools[position].dbn
             Navigation.findNavController(it).navigate(ListFragmentDirections.actionDetailFragment())
         }
     }

@@ -11,7 +11,7 @@ import com.roman.jpmnycsch.model.School
 
 
 /*
-* Class: SchoolAdapter
+* Class: SATScoreAdapter
 * Owner: Roman Edjlali
 * Date Created: 09/02/2023 15:08
 */

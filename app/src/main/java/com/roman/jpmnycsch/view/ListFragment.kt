@@ -4,17 +4,14 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
-import androidx.navigation.NavDirections
-import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.roman.jpmnycsch.R
 import com.roman.jpmnycsch.databinding.FragmentListBinding
-import com.roman.jpmnycsch.viewmodel.SchoolViewModel
+import com.roman.jpmnycsch.viewmodel.ListViewModel
 
 
 /**
@@ -22,13 +19,12 @@ import com.roman.jpmnycsch.viewmodel.SchoolViewModel
  * Owner: Roman Edjlali
  * Date Created: 09/01/2023 8:23 AM
  */
-
 class ListFragment : Fragment() {
 
     private val tag = javaClass.simpleName
     private lateinit var listBinding: FragmentListBinding
 
-    lateinit var viewModel: SchoolViewModel
+    lateinit var viewModel: ListViewModel
     private val schoolAdapter = SchoolAdapter(arrayListOf())
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -71,7 +67,7 @@ class ListFragment : Fragment() {
         arguments?.let {
 
         }
-        viewModel = ViewModelProviders.of(this).get(SchoolViewModel::class.java)
+        viewModel = ViewModelProviders.of(this).get(ListViewModel::class.java)
         viewModel.refresh()
 
         listBinding.schoolList.apply {

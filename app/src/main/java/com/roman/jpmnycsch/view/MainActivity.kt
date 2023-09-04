@@ -1,23 +1,15 @@
 package com.roman.jpmnycsch.view
 
 import android.os.Bundle
-import android.view.View
+import android.view.WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE
 import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.view.ActionMode
-import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProviders
-import androidx.navigation.NavController
-import androidx.navigation.Navigation
-import androidx.navigation.ui.NavigationUI
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.roman.jpmnycsch.databinding.ActivityMainBinding
-import com.roman.jpmnycsch.viewmodel.SchoolViewModel
-import com.roman.jpmnycsch.R
+import com.roman.jpmnycsch.viewmodel.ListViewModel
 
 /*
 * Class: MainActivity
 * Owner: Roman Edjlali
-* Date Created: 08/31/2023 18:59 PM
+* Date Created: 08/31/2023 18:59
 */
 
 class MainActivity : AppCompatActivity() {
@@ -26,7 +18,7 @@ class MainActivity : AppCompatActivity() {
     //private lateinit var navController: NavController
     private  lateinit var binding: ActivityMainBinding
 
-    lateinit var viewModel: SchoolViewModel
+    lateinit var viewModel: ListViewModel
     private val schoolAdapter = SchoolAdapter(arrayListOf())
 
 
@@ -37,7 +29,7 @@ class MainActivity : AppCompatActivity() {
         //navController = Navigation.findNavController(this@MainActivity, R.id.fragment)
         //NavigationUI.setupActionBarWithNavController(this@MainActivity,navController)
         setContentView(view)
-
+        window.setSoftInputMode(SOFT_INPUT_ADJUST_RESIZE)
 
        /* viewModel = ViewModelProviders.of(this).get(SchoolViewModel::class.java)
         viewModel.refresh()
@@ -71,7 +63,7 @@ class MainActivity : AppCompatActivity() {
             }
         })
     }*/
-   /* override fun onSupportNavigateUp(): Boolean {
-        return NavigationUI.navigateUp(navController, null)
-    }*/
+    /* override fun onSupportNavigateUp(): Boolean {
+         return NavigationUI.navigateUp(navController, null)
+     }*/
 }

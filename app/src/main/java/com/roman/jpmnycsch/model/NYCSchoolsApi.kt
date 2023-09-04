@@ -5,12 +5,12 @@ import retrofit2.Response
 import retrofit2.http.GET
 
 /*
-* Interface: SchoolApiService
+* Interface: NYCSchoolsApi
 * Owner: Roman Edjlali
 * Date Created: 08/31/2023 19:16
 */
 
-interface SchoolApiService {
+interface NYCSchoolsApi {
     //https://data.cityofnewyork.us/resource/s3k6-pzi2.json
     @GET("resource/s3k6-pzi2.json")
     suspend fun getAllSchools(): Response<List<School>>

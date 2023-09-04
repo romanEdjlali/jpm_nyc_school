@@ -1,24 +1,14 @@
 package com.roman.jpmnycsch.viewmodel
 
 import android.app.Application
-import android.util.Log
+import android.widget.Toast
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
 import com.roman.jpmnycsch.model.AppDatabase
 import com.roman.jpmnycsch.model.SATScore
-import com.roman.jpmnycsch.model.School
-import com.roman.jpmnycsch.model.SchoolRetrofitClient
-import kotlinx.coroutines.CoroutineExceptionHandler
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
-import retrofit2.Response
-import kotlin.coroutines.CoroutineContext
 
 /*
-* Class:  SATScoreViewModel
+* Class:  SATScoreViewModel`
 * Owner: Roman Edjlali
 * Date Created: 09/02/2023 17:27
 */
@@ -111,15 +101,22 @@ class SATScoreViewModel(*/
 
     }*/
 
-//----------------------
 
-class SATScoreViewModel(application: Application) : BaseViewModel(application) {
+class DetailViewModel(application: Application) : BaseViewModel(application) {
 
     val satScoreLiveData = MutableLiveData<SATScore>()
 
-    fun fetch(uuid: Int) {
+  /*  fun fetch(uuid: Int) {
         launch {
             val satScore = AppDatabase(getApplication()).satScoreDao().getSatScore(uuid)
+            satScoreLiveData.value = satScore
+        }
+    }*/
+
+    fun fetchByDbn(dbn: String) {
+        launch {
+            val satScore = AppDatabase(getApplication()).satScoreDao().getSatScoreByDbn(dbn)
+            Toast.makeText(getApplication(), "satScore is $satScore", Toast.LENGTH_SHORT).show()
             satScoreLiveData.value = satScore
         }
     }
