@@ -1,12 +1,11 @@
 <resources>
-    <string name="app_name">JPM NYC SCH</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="dbn">DBN:</string>
-    <string name="test_takers">Test Takers:</string>
-    <string name="reading_score">Reading Score:</string>
-    <string name="math_score">Math Score:</string>
-    <string name="writing_score">Writing Score:</string>
+   <!-- <string name="app_name">JPM NYC SCH</string>-->
+    <string name="app_name">20230903-RomanEdjlali-NYCSchool</string>
+    <string name="dbn">DBN: &#160;</string>
+    <string name="school_name">School Name:  &#160;</string>
+    <string name="test_takers">Test Takers:  &#160;</string>
+    <string name="reading_score">Reading Score:  &#160;</string>
+    <string name="math_score">Math Score:  &#160;</string>
+    <string name="writing_score">Writing Score:  &#160;</string>
     <string name="error">Error</string>
-    <string name="school_name">School Name:</string>
 </resources>

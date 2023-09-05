@@ -54,9 +54,16 @@ class ListViewModel(application: Application): BaseViewModel(application)  {
 
     fun refresh(){
         fetchSchools()
-        //fetchFromRemote()
-        fetchFromDatabase()
-        println("--->>>>>>>>>>>>> ${satScores.value?.size}")
+        deleteDb()
+        fetchFromRemote()
+        //fetchFromDatabase()
+        println("--->>> ${satScores.value?.size}")
+    }
+
+    fun deleteDb() {
+        launch {
+            AppDatabase(getApplication()).satScoreDao().deleteAllSAtScore()
+        }
     }
 
     private fun fetchSchools() {
@@ -73,9 +80,7 @@ class ListViewModel(application: Application): BaseViewModel(application)  {
                     onError(" --> Error: ${response.message()}")
                 }
             }
-
         }
-
     }
 
     private fun onError(message: String) {
@@ -155,21 +160,6 @@ class ListViewModel(application: Application): BaseViewModel(application)  {
                         e.printStackTrace()
                     }
                 }))
-
-                    /*override fun onSuccess(scoreList: List<SATScore>) {
-                        storeSATScoreLocally(scoreList)
-                        Toast.makeText(getApplication(), "SATScoreList retrieved from endpoint", Toast.LENGTH_SHORT).show()
-                        NotificationsHelper(getApplication()).createNofitication()
-                    }
-
-                    override fun onError(e: Throwable) {
-                        schoolLoadError.value = true
-                        loading.value = false
-                        e.printStackTrace()
-                    }*/
-
-                    //})
-
     }
 
 }

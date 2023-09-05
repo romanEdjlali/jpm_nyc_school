@@ -11,7 +11,6 @@ import com.roman.jpmnycsch.viewmodel.ListViewModel
 * Owner: Roman Edjlali
 * Date Created: 08/31/2023 18:59
 */
-
 class MainActivity : AppCompatActivity() {
     private val tag = javaClass.simpleName
 
@@ -29,40 +28,8 @@ class MainActivity : AppCompatActivity() {
         //navController = Navigation.findNavController(this@MainActivity, R.id.fragment)
         //NavigationUI.setupActionBarWithNavController(this@MainActivity,navController)
         setContentView(view)
-        window.setSoftInputMode(SOFT_INPUT_ADJUST_RESIZE)
-
-       /* viewModel = ViewModelProviders.of(this).get(SchoolViewModel::class.java)
-        viewModel.refresh()
-
-        binding.schoolList.apply {
-            layoutManager = LinearLayoutManager(context)
-            adapter = schoolAdapter
-        }
-
-        observeViewModel()*/
     }
 
-    /*fun observeViewModel() {
-        viewModel.schools.observe(this, Observer {schools ->
-            schools?.let {
-                binding.schoolList.visibility = View.VISIBLE
-                schoolAdapter.updateSchoolList(it) }
-        })
-
-        viewModel.schoolLoadError.observe(this, Observer { isError ->
-            binding.listError.visibility = if(isError == "") View.GONE else View.VISIBLE
-        })
-
-        viewModel.loading.observe(this, Observer { isLoading ->
-            isLoading?.let {
-                binding.loadingView.visibility = if(it) View.VISIBLE else View.GONE
-                if(it) {
-                    binding.listError.visibility = View.GONE
-                    binding.schoolList.visibility = View.GONE
-                }
-            }
-        })
-    }*/
     /* override fun onSupportNavigateUp(): Boolean {
          return NavigationUI.navigateUp(navController, null)
      }*/

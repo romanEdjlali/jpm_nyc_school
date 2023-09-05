@@ -52,15 +52,8 @@ class SchoolAdapter(private val schools: ArrayList<School>) :
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.bind(schools[position])
         holder.itemView.setOnClickListener {
-            // Display shipment destination for the selected driver
-            /*Toast.makeText(
-                holder.itemView.context,
-                "DBN: ${schools[position].dbn}\nSchool Name: ${schools[position].school_name}",
-                Toast.LENGTH_SHORT
-            ).show()*/
             val action: ListFragmentDirections.ActionDetailFragment = ListFragmentDirections.actionDetailFragment()
             action.dbnIndex = schools[position].dbn
-            Log.d(tag, "***>>> dbn is: ${action.dbnIndex}")
             Navigation.findNavController(it).navigate(action)
         }
     }
